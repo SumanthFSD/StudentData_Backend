@@ -8,45 +8,9 @@ An interface for the employees of Career Camp to fill in the student data into t
 
 ## Table of Contents
 
-1. [Directory Structure](#directory-structure)
-2. [Node.js Environment Setup](#nodejs-environment-setup)
-3. [Screenshots](#screenshots)
-4. [Contributors](#contributors)
-
-## Directory Structure
-project-root
-│
-├── app.js
-├── public
-│ │ ├── main.css
-├── routes
-│ ├── authRoutes.js
-│ ├── studentRoutes.js
-│ ├── interviewRoutes.js
-│ └── ...
-├── models
-│ ├── student.js
-│ ├── interview.js
-│ └── ...
-├── views
-│ ├── layout.ejs
-│ ├── students
-│ │ ├── list.ejs
-│ │ ├── add.ejs
-│ │ └── ...
-│ ├── interviews
-│ │ ├── list.ejs
-│ │ ├── create.ejs
-│ │ └── ...
-│ └── add
-├── controllers
-│ ├── authController.js
-│ ├── studentController.js
-│ ├── interviewController.js
-│ └── ...
-├── ...
-└── README.md
-
+1. [Node.js Environment Setup](#nodejs-environment-setup)
+2. [Screenshots](#screenshots)
+3. [Contributors](#contributors)
 
 
 ## Node.js Environment Setup
