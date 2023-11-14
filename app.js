@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
   // Check if the user is authenticated (logged in)
   if (req.session && req.session.userId) {
     // User is authenticated, render the home page
-    res.render('layout');
+    res.render('index');
   } else {
     // User is not authenticated, redirect to the login page
     res.redirect('/login');
