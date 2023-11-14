@@ -3,7 +3,8 @@
 ## Overview
 
 An interface for the employees of Career Camp to fill in the student data into the database and then download it in CSV format.
-![Page1_BET1](https://github.com/SumanthFSD/StudentData_Backend/assets/80679363/7dbc1603-2d48-423d-8446-6612d50a9c67)
+![page1_BST1](https://github.com/SumanthFSD/StudentData_Backend/assets/80679363/d0c3c99a-67cc-4904-97f3-9d3899356db1)
+
 
 
 ## Table of Contents
