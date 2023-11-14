@@ -13,7 +13,23 @@ async function downloadCsv(req, res) {
     const data = [];
 
     students.forEach(student => {
-      student.interviews.forEach(interview => {
+      if (student.interviews && student.interviews.length > 0) {
+        student.interviews.forEach(interview => {
+          data.push({
+            studentId: student._id,
+            studentName: student.studentName,
+            studentCollege: student.college,
+            studentStatus: student.status,
+            dsaFinalScore: student.scores.dsa,
+            webdFinalScore: student.scores.webd,
+            reactFinalScore: student.scores.react,
+            interviewDate: interview.date,
+            interviewCompany: interview.companyName,
+            interviewResult: interview.result,
+          });
+        });
+      } else {
+        // If no interviews, include the student with empty interview data
         data.push({
           studentId: student._id,
           studentName: student.studentName,
@@ -22,11 +38,11 @@ async function downloadCsv(req, res) {
           dsaFinalScore: student.scores.dsa,
           webdFinalScore: student.scores.webd,
           reactFinalScore: student.scores.react,
-          interviewDate: interview.date,
-          interviewCompany: interview.company,
-          interviewResult: interview.result,
+          interviewDate: '',
+          interviewCompany: '',
+          interviewResult: '',
         });
-      });
+      }
     });
 
     const csvWriter = createCsvWriter({

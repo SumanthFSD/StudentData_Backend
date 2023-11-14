@@ -4,6 +4,7 @@
 <table>
     <thead>
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Batch</th>
             <th>College</th>
@@ -16,6 +17,7 @@
     <tbody>
         <% students.forEach(student => { %>
             <tr>
+                <td><%= student.studentID %></td>
                 <td>
                     <button onclick="openInterviewsPopup('<%= student._id %>')">
                         <%= student.studentName %>

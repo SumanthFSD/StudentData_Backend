@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const studentSchema = new mongoose.Schema({
+  studentID: Number,
   studentName: String,
   batch: String,
   college: String,

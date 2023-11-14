@@ -7,7 +7,7 @@ const routes = require('./routes'); // Import the aggregated routes
 const app = express();
 
 // Middleware
-app.use(express.static('public'));
+app.use(express.static('/public/'));
 app.use(express.urlencoded({ extended: true }));
 
 // Set up sessions with MongoStore

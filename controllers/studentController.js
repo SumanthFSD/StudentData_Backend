@@ -16,10 +16,11 @@ function renderAddStudentForm(req, res) {
 }
 
 async function addStudent(req, res) {
-  const { studentName, batch, college, status, dsa, webd, react } = req.body;
+  const { studentID, studentName, batch, college, status, dsa, webd, react } = req.body;
 
   try {
     const newStudent = new Student({
+      studentID,
       studentName,
       batch,
       college,

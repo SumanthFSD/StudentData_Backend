@@ -1,9 +1,10 @@
 <%- include('../layout.ejs') %>
-<link rel="stylesheet" href="../../public/main.css">
 
 <section>
     <h2>Add Student</h2>
     <form action="/students/add" method="post">
+        <label for="studentID">Student ID:</label>
+        <input type="number" id="studentID" name="studentID" required>
         <label for="studentName">Name:</label>
         <input type="text" id="studentName" name="studentName" required>
         <label for="batch">Batch:</label>
