@@ -1,0 +1,15 @@
+<%- include('../layout.ejs') %>
+
+<section>
+    <h2>External Jobs List</h2>
+
+    <ul>
+        <% externalJobs.forEach(job => { %>
+            <li>
+                <h3><%= job.title %></h3>
+                <p><%= job.company %> - <%= job.location %></p>
+                <a href="<%= job.url %>" target="_blank">Apply</a>
+            </li>
+        <% }); %>
+    </ul>
+</section>

@@ -1,0 +1,68 @@
+<%- include('../layout.ejs') %>
+<h2>List of Students</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Batch</th>
+            <th>College</th>
+            <th>Status</th>
+            <th>DSA Score</th>
+            <th>Web Development Score</th>
+            <th>React Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% students.forEach(student => { %>
+            <tr>
+                <td>
+                    <button onclick="openInterviewsPopup('<%= student._id %>')">
+                        <%= student.studentName %>
+                    </button>
+                </td>
+                <td><%= student.batch %></td>
+                <td><%= student.college %></td>
+                <td><%= student.status %></td>
+                <td><%= student.scores.dsa %></td>
+                <td><%= student.scores.webd %></td>
+                <td><%= student.scores.react %></td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
+
+
+<li><a href="/students/add">Add New Student</a></li>
+<li><a href="/students/allocate">Allocate a Student to Interview</a></li>
+<li><a href="/csv/downloadCsv">Download the Student data (CSV)</a></li>
+
+<!-- script to handle the pop-up window -->
+<script>
+    function openInterviewsPopup(studentId) {
+      // Define the URL for fetching the interviews for the student
+      const interviewsUrl = `/students/${studentId}/interviews`; // Adjust the route as needed
+  
+      // Fetch the interviews data from the server
+      fetch(interviewsUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log("-------> Student Name", data.student);
+          // Create and open a pop-up window with the interviews data
+          const popup = window.open('', '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
+          popup.document.write('<html><head><title>Assigned Interviews</title></head><body>');
+          popup.document.write(`<h2>Assigned Interviews for ${data.student.studentName}</h2>`);
+          popup.document.write('<ul>');
+          data.interviews.forEach(interview => {
+            popup.document.write(`<li>${interview.companyName} - ${interview.date}</li>`);
+          });
+          popup.document.write('</ul>');
+          popup.document.write('</body></html>');
+          popup.document.close();
+        })
+        .catch(error => {
+          console.error('Error fetching interviews data', error);
+          alert('Error fetching interviews data');
+        });
+    }
+  </script>

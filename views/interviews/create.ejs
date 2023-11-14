@@ -1,0 +1,14 @@
+<%- include('../layout.ejs') %>
+
+<section>
+    <h2>Create Interview</h2>
+    <form action="/interviews/create" method="post">
+        <label for="companyName">Company Name:</label>
+        <input type="text" id="companyName" name="companyName" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <button type="submit">Create Interview</button>
+    </form>
+</section>

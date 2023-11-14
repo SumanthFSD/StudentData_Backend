@@ -1,0 +1,30 @@
+<%- include('layout.ejs') %>
+
+<section>
+    <h2>Mark Result Status</h2>
+    <form action="/interviews/markResult" method="post">
+        <label for="interviewId">Select Interview:</label>
+        <select id="interviewId" name="interviewId" required>
+            <% interviews.forEach(interview => { %>
+                <option value="<%= interview._id %>"><%= interview.companyName %> - <%= interview.date %></option>
+            <% }); %>
+        </select>
+
+        <label for="studentId">Select Student:</label>
+        <select id="studentId" name="studentId" required>
+            <% students.forEach(student => { %>
+                <option value="<%= student._id %>"><%= student.batch %> - <%= student.college %></option>
+            <% }); %>
+        </select>
+
+        <label for="resultStatus">Result Status:</label>
+        <select id="resultStatus" name="resultStatus" required>
+            <option value="PASS">Pass</option>
+            <option value="FAIL">Fail</option>
+            <option value="On Hold">On Hold</option>
+            <option value="Didn't Attempt">Didn't Attempt</option>
+        </select>
+
+        <button type="submit">Mark Result</button>
+    </form>
+</section>
