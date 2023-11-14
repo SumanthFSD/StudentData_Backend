@@ -18,8 +18,8 @@ An interface for the employees of Career Camp to fill in the student data into t
 1. **Clone the Repository:**
 
     ```bash
-    git clone https://github.com/your-username/your-project.git
-    cd your-project
+    git clone https://github.com/SumanthFSD/StudentData_Backend.git
+    cd StudentData_Backend
     ```
 
 2. **Install Dependencies:**
