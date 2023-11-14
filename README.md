@@ -1,8 +1,10 @@
-# Project Name
+# Career Camp Student Data - Back End NodeJS
 
 ## Overview
 
-Brief description of your project.
+An interface for the employees of Career Camp to fill in the student data into the database and then download it in CSV format.
+![Page1_BET1](https://github.com/SumanthFSD/StudentData_Backend/assets/80679363/7dbc1603-2d48-423d-8446-6612d50a9c67)
+
 
 ## Table of Contents
 
@@ -12,8 +14,39 @@ Brief description of your project.
 4. [Contributors](#contributors)
 
 ## Directory Structure
+project-root
+│
+├── app.js
+├── public
+│ │ ├── main.css
+├── routes
+│ ├── authRoutes.js
+│ ├── studentRoutes.js
+│ ├── interviewRoutes.js
+│ └── ...
+├── models
+│ ├── student.js
+│ ├── interview.js
+│ └── ...
+├── views
+│ ├── layout.ejs
+│ ├── students
+│ │ ├── list.ejs
+│ │ ├── add.ejs
+│ │ └── ...
+│ ├── interviews
+│ │ ├── list.ejs
+│ │ ├── create.ejs
+│ │ └── ...
+│ └── add
+├── controllers
+│ ├── authController.js
+│ ├── studentController.js
+│ ├── interviewController.js
+│ └── ...
+├── ...
+└── README.md
 
-Explain the organization of your project's directory structure.
 
 
 ## Node.js Environment Setup
@@ -28,7 +61,7 @@ Explain the organization of your project's directory structure.
 2. **Install Dependencies:**
 
     ```bash
-    npm install
+    npm install express ejs mongoose express-session connect-mongo
     ```
 
 3. **Run the Application:**
@@ -40,16 +73,12 @@ Explain the organization of your project's directory structure.
     Your application will be running on `http://localhost:3000` by default.
 
 ## Screenshots
+![signup_BET1](https://github.com/SumanthFSD/StudentData_Backend/assets/80679363/993dc1e3-e28f-4b25-afa8-bdbcde0b77ed)
+![login_BET1](https://github.com/SumanthFSD/StudentData_Backend/assets/80679363/f38cd2a2-b096-4ba3-ab22-3586c1c8dd71)
 
-Include screenshots of your application pages.
 
-- [Screenshot 1](./screenshots/screenshot1.png)
-- [Screenshot 2](./screenshots/screenshot2.png)
-- ...
 
 ## Contributors
 
-- [Your Name](https://github.com/your-username)
-- [Contributor 1](https://github.com/contributor1)
-- [Contributor 2](https://github.com/contributor2)
+- [Sumanth Reddy Gatla](https://github.com/SumanthFSD)
 
