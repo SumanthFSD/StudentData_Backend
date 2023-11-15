@@ -1,5 +1,5 @@
 {
-  "main": "nodemon app.js",
+  "main": "app.js",
   "dependencies": {
     "axios": "^1.6.1",
     "bcrypt": "^5.1.1",
