@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo')(session);
 const routes = require('./routes'); // Import the aggregated routes
+const connectDB = require('./config'); // Import the MongoDB connection
 
 const app = express();
 
@@ -11,9 +12,9 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 // Set up sessions with MongoStore
-const mongoStore = MongoStore.create({
-  mongoUrl: 'mongodb://localhost:27017/Career-Camp',
-  collection: 'sessions', // optional, the default is 'sessions'
+const mongoStore = new MongoStore({
+  mongooseConnection: connectDB, // Use the existing Mongoose connection
+  autoRemove: 'disabled',
 });
 
 app.use(
@@ -21,7 +22,10 @@ app.use(
     secret: 'justSecret',
     resave: false,
     saveUninitialized: true,
-    store: mongoStore,
+    cookie: {
+      maxAge: (1000 * 60 * 100)
+    },
+    store: mongoStore
   })
 );
 
@@ -29,11 +33,6 @@ app.use(
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/Career-Camp', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
 app.get('/', (req, res) => {
   // Check if the user is authenticated (logged in)
@@ -61,7 +60,7 @@ app.get('/logout', (req, res) => {
 app.use(routes);
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
